@@ -1,6 +1,7 @@
 import './App.css';
 import Header from './components/Header/Header';
 import Hero from './components/Hero/Hero';
+import Home from './components/Home/Home';
 import {
   BrowserRouter as Router,
   Switch,
@@ -18,9 +19,13 @@ function App() {
       <Hero/>
       </Route>
 
-      {/* <Route path="/channels">
+      <Route exact path="/channels">
         <Home/>
-      </Route> */}
+      </Route>
+
+      <Route exact path="/channels/:id">
+        <Home/>
+      </Route>
       </Switch>
       </Router>
     </div>
