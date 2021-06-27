@@ -4,7 +4,13 @@ import { useCollection } from "react-firebase-hooks/firestore";
 import { auth, db } from "../../firebase";
 import { Redirect } from "react-router-dom";
 import ServerIcon from "../ServerIcon/ServerIcon";
-import { PlusIcon, ChevronDownIcon } from "@heroicons/react/outline";
+import {
+  PlusIcon,
+  ChevronDownIcon,
+  PhoneIcon,
+  MicrophoneIcon,
+  CogIcon,
+} from "@heroicons/react/outline";
 import Channel from "../Channel/Channel";
 
 const Home = () => {
@@ -61,6 +67,34 @@ const Home = () => {
                   channelName={doc.data().channelName}
                 />
               ))}
+            </div>
+          </div>
+          <div className="bg-discord_userSectionBg p-2 flex justify-between items-center space-x-8">
+            <div className="flex items-center space-x-1">
+              <img
+                onClick={() => auth.signOut()}
+                src={user?.photoURL}
+                alt="user"
+                className="h-7 rounded-full cursor-pointer"
+              />
+              <h4 className="text-white text-xs font-medium">
+                {user?.displayName}
+                <span className="text-discord_userId block">
+                  #{user?.uid.substring(0, 4)}
+                </span>
+              </h4>
+
+              <div className="text-gray-400 flex items-center">
+                <div className="hover:bg-discord_iconHoverBg cursor-pointer p-2 rounded-md">
+                  <MicrophoneIcon className="h-5 icon" />
+                </div>
+                <div className="hover:bg-discord_iconHoverBg cursor-pointer p-2 rounded-md">
+                  <PhoneIcon className="h-5 icon" />
+                </div>
+                <div className="hover:bg-discord_iconHoverBg cursor-pointer p-2 rounded-md">
+                  <CogIcon className="h-5 icon" />
+                </div>
+              </div>
             </div>
           </div>
         </div>
