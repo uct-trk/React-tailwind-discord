@@ -12,6 +12,7 @@ import {
   CogIcon,
 } from "@heroicons/react/outline";
 import Channel from "../Channel/Channel";
+import Chat from "../Chat/Chat";
 
 const Home = () => {
   const [user] = useAuthState(auth);
@@ -97,6 +98,9 @@ const Home = () => {
               </div>
             </div>
           </div>
+        </div>
+        <div className="bg-discord_chatBg flex-grow">
+          <Chat />
         </div>
       </div>
     </>
